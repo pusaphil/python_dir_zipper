@@ -21,9 +21,11 @@ For zipping (.zip) a directory with TXT and/or CSV files, and resizing/"parting"
 
 ## Usage
 ### Syntax
+
 ```python
 class DirZipper(this_dir, file_limit, zip_limit, get_header=True, delete_original=True, delete_part_files=True)
 ```
+
 <p>
 Where:
 <pre>this_dir</pre>An existing string path.
@@ -35,6 +37,7 @@ Where:
 </p>
 
 ### Sample Script (named test.py)
+
 ```python
     from dir_zipper import DirZipper
 
@@ -45,7 +48,9 @@ Where:
 ```
 
 ### Sample test dir
+
 <p>In the scenario below, there is a directory named '20180209_200258' with two valid CSV files for zip and parting.</p>
+
 ```bash
 pusa@some_cp:~/foo/bar/output/20180209_200258$ ll
 total 212
@@ -80,7 +85,9 @@ drwxrwxr-x 2 pusa pusa   4096 Feb 12 18:52 Untitled Folder/
 ```
 
 ### Actual output
+
 <p>One level up the directory used for testing, we can see the generated ZIP files</p>
+
 ```bash
     pusa@some_cp:~/foo/bar/output$ ll
     total 232
@@ -94,7 +101,9 @@ drwxrwxr-x 2 pusa pusa   4096 Feb 12 18:52 Untitled Folder/
     -rw-rw-r-- 1 pusa pusa 33836 Feb 13 08:56 20180209_200258_5.zip
     -rw-rw-r-- 1 pusa pusa 33901 Feb 13 08:56 20180209_200258_6.zip
 ```
+
 <p>The directory used for testing will look like this. Noticed that the original files are deleted.</p>
+
 ```bash
     pusa@some_cp:~/foo/bar/output/20180209_200258$ ll
     total 12
@@ -102,5 +111,4 @@ drwxrwxr-x 2 pusa pusa   4096 Feb 12 18:52 Untitled Folder/
     drwxrwxr-x 4 pusa pusa 4096 Feb 13 08:56 ../
     -rw-rw-r-- 1 pusa pusa    0 Feb 12 18:52 1.png
     drwxrwxr-x 2 pusa pusa 4096 Feb 12 18:52 Untitled Folder/
-
 ```
