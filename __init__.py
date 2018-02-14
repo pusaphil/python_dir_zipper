@@ -122,10 +122,13 @@ class DirZipper(object):
     def file_resize(self, this_filename, file_limit, get_header=True, delete_original=True):
         """Resize given file based on given limit. Resized file will have multiple parts. Original file will be deleted. """
         ret_val = True
+        original_file_size = os.stat(this_filename).st_size
 
         # this_file should exists and its file ext is supported, and is a file
-        if os.path.exists(this_filename) is True and os.path.isfile(this_filename) and this_filename.lower().endswith(self.__file_ext_supported_list):
-            original_file_size = os.stat(this_filename).st_size
+        if os.path.exists(this_filename) is True and\
+            os.path.isfile(this_filename) and\
+            this_filename.lower().endswith(self.__file_ext_supported_list) and\
+        original_file_size > file_limit:
             max_chunk = math.ceil(original_file_size / file_limit) + 1
             file_limit = math.ceil(original_file_size / max_chunk)
             filename, file_ext = os.path.splitext(this_filename)
